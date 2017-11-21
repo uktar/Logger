@@ -41,13 +41,13 @@ class Logger {
     fileprivate func doLog(_ level: LogLevel, fileName: String, funcName: String, line: Int, logStr: String) {
         if level.rawValue >= logLevel.rawValue  {
             
-            let pathNameArr = fileName.characters.split{$0 == "/"}.map { String($0) }
+            let pathNameArr = fileName.split{$0 == "/"}.map { String($0) }
             var file = fileName
             if pathNameArr.last != nil {
                 file = pathNameArr.last!
             }
             
-            let funcNameArr = funcName.characters.split{$0 == "("}.map { String($0) }
+            let funcNameArr = funcName.split{$0 == "("}.map { String($0) }
             var funcNameNoParam = funcName
             if funcNameArr.first != nil {
                 funcNameNoParam = funcNameArr.first!
